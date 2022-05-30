@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<title> ARでお店探し　We Bar</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+<style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+	from { opacity: 0.99; }
+	to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+	animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+	position: absolute;
+	direction: ltr;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	pointer-events: none;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+	position: absolute;
+	width: 1000000px;
+	height: 1000000px;
+	left: 0;
+	top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	left: 0;
+	top: 0;
+}
+.header, .header a {
+    color: #fff;
+}
+.header {
+    text-align: center;
+    background-color: #55c500;
+    padding: 16px;
+}
+
+@keyframes anime{
+0%{transform:scale(.95); opacity:1}
+90%{opacity:.1}to{transform:scale(1.2,1.5); opacity:0}
+}
+
+body {
+  background: #f2f2f2;
+}
+.d-btn {
+  position: relative;
+  width: 250px;
+  margin: 100px auto;
+  transition: .2s;
+}
+.d-btn:before, .d-btn:after {
+  content: "";
+  position: absolute;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 32px;
+  background: #ffaaae;
+  border: 1px solid #ff999e;
+  transform: translate3d(0,0,0);
+}
+.d-btn:before {
+  animation: anime 2s ease-out infinite;
+}
+.d-btn:after {
+ animation: anime 2s ease-out 1s infinite;
+}
+
+.c-btn {
+  display: block;
+  padding: 20px 0;
+  border-radius: 32px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  background: #c81c14;
+}
+.s-btn {
+  display: block;
+  position: relative;
+  font-family: sans-serif;
+}
+.s-btn:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  width: 8px;
+  height: 8px;  
+  margin: -4px 0 0 0;
+  border-right: 1px solid #fff;
+  border-top: 1px solid #fff;
+  transform: translateX(5px) rotate(45deg);
+}
+
+.tb-mrgn-35 {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+</style>
+<meta name="description" content=" | あなたの近くの美味しいお店が見つかる。ARで探すグルメアプリ。人気なお店から隠れ居酒屋まで。 | We Bar" data-react-helmet="true">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9959886573176847"
+     crossorigin="anonymous"></script>
+</head>
+
+
+<body aria-hidden="false" style="padding: 0px;">
+<div id="root">
+  <div class="App">
+    <div class="header">
+      <a>
+        <div class="logo"></div>
+        <h1 class="header-title">あなたの近くの美味しいお店が見つかる<br> We Bar（ウィーバー）</h1>
+      </a>
+    </div>
+  </div>
+</div>
+<main role="main" class="mt-100">
+
+  <div class="container">
+
+    <div class="mb-150 webarContainer">
+      <h2 class="c-ttl tb-mrgn-35">お店探しをより楽しく</h2>
+      <p class="c-txt--medium mb-40">
+        あなたの位置からどこにどんなグルメがあるかARで発見できるサイトです。<br>
+        店名ではなくキャッチフレーズで表示されるので、あなたが本当に求めてるお店がすぐ見つかるかも。<br>
+        アプリのインストールは必要なく、下のボタンを押すとカメラが起動してすぐ始められます。
+        行きつけの街でも旅先でもぜひ使ってみてください。
+        ※PC、タブレットは対応していません。
+        ※本サービスは株式会社リクルート様のAPI「グルメサーチ」を利用しています。
+      </p>
+
+        <div class="d-btn"><a class="c-btn" href="{% url 'WebAR:ar' %}" role="button"><span class="s-btn">早速使ってみる</span></a></div>
+
+    </div><!-- .webarContainer -->
+
+
+    <div class="mb-150 differContainer">
+      <h2 class="c-ttl"> We Barの使い方</h2>
+      <p class="c-txt--medium mb-40">
+       起動するとまず"after camera permission prompt, please tap the screen to activate geolocation"(カメラを許可したらスクリーンをタップしてジオロケーションをアクティブにしてください。)と表示されるので、閉じるを押してください。
+       カメラや位置を許可した後、画面を一度タップしてアプリをアクティブにしてください。
+      </p>
+      
+      <div class="row mb-5 ">
+        <div class="col-lg-6">
+          <div class="tb-mrgn-35">
+            <h3 class="differ-ttl">1.お店を探してるよ</h3>
+            <p class="differ-txt">画面をタッチすると「おしながき」が表示されます。お店が見つかるまで検索中と表示されます。</p>
+            <img src="../static/aplpic1.png">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="tb-mrgn-35">
+          <h3 class="differ-ttl">2.近くのお店が見つかったよ</h3>
+          <p class="differ-txt">お店がある方向にキャッチフレーズが表示されます。</p>
+          <img src="../static/aplpic2.png">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="tb-mrgn-35">
+          <h3 class="differ-ttl">3.お店の詳細を見るよ</h3>
+          <p class="differ-txt">お店が見つかった後に「おしながき」にキャッチフレーズとその店名が表示されます。ここからお店の詳細ページが別タブで開きます。</p>
+          <img src="../static/aplpic3.png">
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+</main>
+</body>
+</html>

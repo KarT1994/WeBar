@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==3.2.9"
+gunicorn = "*"
+channels = "*"
+channels-redis = "*"
+idna = "*"
+twisted = {extras = ["http2", "tls"], version = "*"}
+pandas = "*"
+requests = "*"
+async-timeout = "==4.0.1"
+attrs = "==21.2.0"
+cryptography = "==36.0.0"
+geopy = "*"
+whitenoise = "*"
+python-dotenv = "*"
+django-environ = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
